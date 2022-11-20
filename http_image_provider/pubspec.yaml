@@ -1,0 +1,18 @@
+name: http_image_provider
+description: An image provider which makes use of package:http to instead of dart:io
+version: 0.0.1
+repository: https://github.com/ueman/image_provider/http_image_provider
+
+environment:
+  sdk: '>=2.12.0 <3.0.0'
+  flutter: ">=3.0.0"
+
+dependencies:
+  http: ^0.13.0
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
