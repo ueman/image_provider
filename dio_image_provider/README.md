@@ -4,6 +4,10 @@
 
 This is an alternative to [`Image.network()`](https://api.flutter.dev/flutter/widgets/Image/Image.network.html) which makes use of the [`dio`](https://pub.dev/packages/dio) package.
 
+## Motivation
+
+By re-using dio as network client for images over the network, you can easily re-use existing authentication code. This also makes it easier to do performance monitoring when used with Sentry, Datadog or similar.
+
 ## Usage
 
 ```dart
