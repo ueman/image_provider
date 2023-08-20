@@ -51,12 +51,11 @@ class HttpImage extends ImageProvider<HttpImage> {
   final Client client;
 
   @override
-  Future<HttpImage> obtainKey(ImageConfiguration configuration) {
-    return SynchronousFuture<HttpImage>(this);
-  }
+  Future<HttpImage> obtainKey(ImageConfiguration configuration) =>
+      SynchronousFuture<HttpImage>(this);
 
   @override
-  ImageStreamCompleter loadBuffer(HttpImage key, DecoderBufferCallback decode) {
+  ImageStreamCompleter loadImage(HttpImage key, ImageDecoderCallback decode) {
     return MultiFrameImageStreamCompleter(
       codec: _loadAsync(key, decode),
       scale: key.scale,
@@ -70,7 +69,7 @@ class HttpImage extends ImageProvider<HttpImage> {
 
   Future<ui.Codec> _loadAsync(
     HttpImage key,
-    DecoderBufferCallback decode,
+    ImageDecoderCallback decode,
   ) async {
     try {
       assert(key == this);
