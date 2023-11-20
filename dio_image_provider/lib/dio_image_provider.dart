@@ -86,7 +86,7 @@ class DioImage extends ImageProvider<DioImage> {
         onReceiveProgress: (count, total) {
           chunkEvents.add(ImageChunkEvent(
             cumulativeBytesLoaded: count,
-            expectedTotalBytes: total,
+            expectedTotalBytes: total >= 0 ? total : null,
           ));
         },
       );
