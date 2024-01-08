@@ -29,6 +29,10 @@ Image(
 
 If you use [`dio`](https://pub.dev/packages/dio) instead of [http](https://pub.dev/packages/http), try [`dio_image_provider`](https://pub.dev/packages/dio_image_provider)
 
+## Why would I want to use this?
+
+Using the `http` package allows you to dynamically configure the implementation for how requests are made. In particular, this is useful if you need to use `cupertino_http` or `cronet_http` to request images. Another use case is if you need to trace HTTP requests with tools like Sentry.
+
 ## 📣 About the author
 
 - [![Twitter Follow](https://img.shields.io/twitter/follow/ue_man?style=social)](https://twitter.com/ue_man)
