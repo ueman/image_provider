@@ -122,7 +122,7 @@ class HttpImageProvider extends ImageProvider<HttpImageProvider> {
 
   @override
   String toString() =>
-      '${objectRuntimeType(this, 'HttpImage')}("$url", scale: $scale)';
+      '${objectRuntimeType(this, 'HttpImageProvider')}("$url", scale: $scale)';
 }
 
 @Deprecated('Use HttpImageProvider instead')
