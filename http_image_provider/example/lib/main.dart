@@ -16,7 +16,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Center(
-          child: Image(image: HttpImage(Uri.parse('https://http.cat/200'))),
+          child: Image(
+              image: HttpImageProvider(Uri.parse('https://http.cat/200'))),
         ),
       ),
     );
