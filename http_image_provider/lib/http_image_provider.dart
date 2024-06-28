@@ -125,5 +125,5 @@ class HttpImageProvider extends ImageProvider<HttpImageProvider> {
       '${objectRuntimeType(this, 'HttpImage')}("$url", scale: $scale)';
 }
 
-@Deprecated('Use HttpClientImageProvider instead')
+@Deprecated('Use HttpImageProvider instead')
 typedef HttpClient = HttpImageProvider;
