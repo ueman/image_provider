@@ -8,7 +8,7 @@ This is an alternative to [`Image.network()`](https://api.flutter.dev/flutter/wi
 
 ```dart
 Image(
-  image: HttpImage(Uri.parse('https://http.cat/200')),
+  image: HttpImageProvider(Uri.parse('https://http.cat/200')),
 )
 ```
 
@@ -16,11 +16,11 @@ Optionally, you can supply your own `Client`.
 
 ```dart
 // Either by setting it globally
-HttpImage.defaultClient = Client();
+HttpImageProvider.defaultClient = Client();
 
 // or by supplying it via constructor
 Image(
-  image: HttpImage(
+  image: HttpImageProvider(
     Uri.parse('https://http.cat/200'),
     client: Client(),
   ),

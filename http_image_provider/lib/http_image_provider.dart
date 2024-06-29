@@ -127,4 +127,4 @@ class HttpImageProvider extends ImageProvider<HttpImageProvider> {
 }
 
 @Deprecated('Use HttpImageProvider instead')
-typedef HttpClient = HttpImageProvider;
+typedef HttpImage = HttpImageProvider;
