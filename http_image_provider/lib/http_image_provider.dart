@@ -16,6 +16,7 @@ import 'package:http/http.dart';
 ///
 ///  * [Image.network].
 ///  * https://pub.dev/packages/dio_image_provider
+///  * https://github.com/dart-lang/http/tree/master/pkgs/flutter_http_example
 @immutable
 class HttpImageProvider extends ImageProvider<HttpImageProvider> {
   /// Can be set to override the default [Client] for the
