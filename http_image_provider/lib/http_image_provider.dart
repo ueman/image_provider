@@ -17,15 +17,17 @@ import 'package:http/http.dart';
 ///  * [Image.network].
 ///  * https://pub.dev/packages/dio_image_provider
 @immutable
-class HttpImage extends ImageProvider<HttpImage> {
-  /// Can be set to override the default [Client] for the [HttpImage].
+class HttpImageProvider extends ImageProvider<HttpImageProvider> {
+  /// Can be set to override the default [Client] for the
+  /// [HttpImageProvider].
   static Client defaultClient = Client();
 
   /// Creates an object that fetches the image at the given URL.
   ///
   /// The arguments [url] and [scale] must not be null.
   /// [client] will be the default [Client] if not set.
-  HttpImage.string(String url, {this.scale = 1.0, this.headers, Client? client})
+  HttpImageProvider.string(String url,
+      {this.scale = 1.0, this.headers, Client? client})
       : client = client ?? defaultClient,
         url = Uri.parse(url);
 
@@ -33,7 +35,7 @@ class HttpImage extends ImageProvider<HttpImage> {
   ///
   /// The arguments [url] and [scale] must not be null.
   /// [client] will be the default [Client] if not set.
-  HttpImage(this.url, {this.scale = 1.0, this.headers, Client? client})
+  HttpImageProvider(this.url, {this.scale = 1.0, this.headers, Client? client})
       : client = client ?? defaultClient;
 
   /// The URL from which the image will be fetched.
@@ -51,24 +53,25 @@ class HttpImage extends ImageProvider<HttpImage> {
   final Client client;
 
   @override
-  Future<HttpImage> obtainKey(ImageConfiguration configuration) =>
-      SynchronousFuture<HttpImage>(this);
+  Future<HttpImageProvider> obtainKey(ImageConfiguration configuration) =>
+      SynchronousFuture<HttpImageProvider>(this);
 
   @override
-  ImageStreamCompleter loadImage(HttpImage key, ImageDecoderCallback decode) {
+  ImageStreamCompleter loadImage(
+      HttpImageProvider key, ImageDecoderCallback decode) {
     return MultiFrameImageStreamCompleter(
       codec: _loadAsync(key, decode),
       scale: key.scale,
       debugLabel: key.url.toString(),
       informationCollector: () => <DiagnosticsNode>[
         DiagnosticsProperty<ImageProvider>('Image provider', this),
-        DiagnosticsProperty<HttpImage>('Image key', key),
+        DiagnosticsProperty<HttpImageProvider>('Image key', key),
       ],
     );
   }
 
   Future<ui.Codec> _loadAsync(
-    HttpImage key,
+    HttpImageProvider key,
     ImageDecoderCallback decode,
   ) async {
     try {
@@ -109,7 +112,9 @@ class HttpImage extends ImageProvider<HttpImage> {
     if (other.runtimeType != runtimeType) {
       return false;
     }
-    return other is HttpImage && other.url == url && other.scale == scale;
+    return other is HttpImageProvider &&
+        other.url == url &&
+        other.scale == scale;
   }
 
   @override
@@ -117,5 +122,8 @@ class HttpImage extends ImageProvider<HttpImage> {
 
   @override
   String toString() =>
-      '${objectRuntimeType(this, 'HttpImage')}("$url", scale: $scale)';
+      '${objectRuntimeType(this, 'HttpImageProvider')}("$url", scale: $scale)';
 }
+
+@Deprecated('Use HttpImageProvider instead')
+typedef HttpClient = HttpImageProvider;
